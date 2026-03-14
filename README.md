@@ -1,7 +1,59 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 
+##*Project Structure*
+```
 
+nexshop/
+├── app/                          ← Next.js App Router
+│   ├── layout.tsx                ← Root layout (Navbar, Providers)
+│   ├── page.tsx                  ← Home page /
+│   ├── products/
+│   │   ├── page.tsx              ← Products list /products
+│   │   └── [id]/
+│   │       └── page.tsx          ← Product detail /products/[id]
+│   ├── categories/
+│   │   └── page.tsx              ← Categories /categories
+│   ├── cart/
+│   │   └── page.tsx              ← Cart /cart
+│   └── architecture/
+│       └── page.tsx              ← Arch overview /architecture
+│
+├── lib/                          ← Layer 1: Infrastructure
+│   └── api/
+│       ├── client.ts             ← apiClient (fetch wrapper)
+│       ├── products.ts           ← ProductAPI.getAll/getById/etc
+│       └── cart.ts               ← CartAPI.add
+│
+├── hooks/                        ← Layer 2: Application (TanStack Query)
+│   ├── useProducts.ts            ← useQuery(["products", category])
+│   ├── useProduct.ts             ← useQuery(["product", id])
+│   ├── useCategories.ts          ← useQuery(["categories"])
+│   └── useAddToCart.ts           ← useMutation → POST /carts
+│
+├── context/                      ← Layer 3: Global State
+│   ├── CartContext.tsx            ← useCart(), addItem, removeItem
+│   ├── RouterContext.tsx          ← useRouter(), push()
+│   └── ToastContext.tsx           ← useToast()
+│
+├── components/                   ← Layer 4: UI (Presentational)
+│   ├── ui/                       ← Reusable primitives
+│   │   ├── Button.tsx
+│   │   ├── Badge.tsx
+│   │   ├── Skeleton.tsx
+│   │   └── Stars.tsx
+│   ├── layout/
+│   │   └── Navbar.tsx
+│   └── product/
+│       ├── ProductCard.tsx
+│       └── ProductCardSkeleton.tsx
+│
+├── types/                        ← TypeScript interfaces
+│   ├── product.ts                ← Product, Category, Rating
+│   └── cart.ts                   ← CartItem, CartPayload
+│
+└── providers.tsx                 ← Wrap semua Context providers
+```
 
 ## Getting Started
 
