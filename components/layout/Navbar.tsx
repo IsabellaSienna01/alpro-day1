@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useCart } from "@/context/CartContext"
+import { Package, ShoppingCart } from "lucide-react"
 
 export function Navbar() {
   const { items } = useCart()
@@ -32,14 +33,18 @@ export function Navbar() {
           text-xl
           font-bold
           text-(--primary)
+          cursor-pointer
+          hover:underline
           "
         >
           AlproShop
         </Link>
 
         <div className="flex items-center gap-6 text-sm font-medium">
-          <Link href="/products">Products</Link>
-          <Link href="/categories">Categories</Link>
+          <Link href="/products">
+          <Package className="inline-block mr-1" size={16} />
+          Products
+          </Link>
 
           <Link
             href="/cart"
@@ -49,6 +54,7 @@ export function Navbar() {
             rounded-md
             "
           >
+            <ShoppingCart className="inline-block md:mr-2" size={16} />
             Cart ({items.length})
           </Link>
 

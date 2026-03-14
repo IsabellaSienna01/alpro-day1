@@ -7,7 +7,7 @@ export const products: Product[] = [
     price: 20,
     category: "wearables",
     image: "/products/1.png",
-    description: "Simple cotton t-shirt",
+    description: "Smartwatch with health tracking and stylish design",
     rating: { rate: 4.5, count: 120 },
   },
   {
@@ -16,7 +16,7 @@ export const products: Product[] = [
     price: 80,
     category: "mouse",
     image: "/products/2.png",
-    description: "Comfortable running shoes",
+    description: "Ergonomic wireless mouse with customizable buttons and RGB lighting",
     rating: { rate: 4.8, count: 250 },
   },
     {
@@ -25,7 +25,7 @@ export const products: Product[] = [
     price: 20,
     category: "wearables",
     image: "/products/3.png",
-    description: "Simple cotton t-shirt",
+    description: "Laser pointer with smart features and long battery life",
     rating: { rate: 4.5, count: 120 },
   },
     {
@@ -34,7 +34,7 @@ export const products: Product[] = [
     price: 20,
     category: "laptop",
     image: "/products/4.png",
-    description: "Simple cotton t-shirt",
+    description: "High-performance laptop for gaming and productivity",
     rating: { rate: 4.5, count: 120 },
   },
 ]

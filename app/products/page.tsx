@@ -3,6 +3,7 @@
 import { useProducts } from "@/hooks/useProducts"
 import { ProductCard } from "@/components/product/ProductCard"
 import { ProductCardSkeleton } from "@/components/product/ProductCardSkeleton"
+import {ArrowLeft} from "lucide-react"
 
 export default function ProductsPage() {
   const { data, isLoading } = useProducts()
@@ -25,6 +26,13 @@ export default function ProductsPage() {
     )
 
   return (
+    <div className="flex flex-col gap-6">
+      <button className="flex w-fit items-center gap-1 text-sm text-(--primary) hover:text-(--secondary)"
+      onClick={() => window.history.back()}
+      > 
+        <ArrowLeft size={16}/>
+        Back to Home
+      </button>
     <div
       className="
       grid
@@ -38,5 +46,6 @@ export default function ProductsPage() {
         <ProductCard key={p.id} product={p} />
       ))}
     </div>
+  </div>
   )
 }

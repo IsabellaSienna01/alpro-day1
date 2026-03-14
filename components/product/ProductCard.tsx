@@ -3,12 +3,14 @@
 import { Product } from "@/types/product"
 import Link from "next/link"
 import Image from "next/image"
+import { Star } from "lucide-react"
 
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/products/${product.id}`}>
       <div
         className="
+        relative
         bg-white
         rounded-xl
         border
@@ -17,6 +19,7 @@ export function ProductCard({ product }: { product: Product }) {
         hover:-translate-y-1
         transition
         cursor-pointer
+        justify-center
         "
       >
         <div className="flex justify-center">
@@ -36,7 +39,7 @@ export function ProductCard({ product }: { product: Product }) {
           className="
           mt-3
           text-sm
-          font-medium
+          font-bold
           line-clamp-2
           "
         >
@@ -51,7 +54,15 @@ export function ProductCard({ product }: { product: Product }) {
           text-(--primary)
           "
         >
-          ${product.price}
+          <div className="flex items-center gap-1">
+            <Star size={16} fill="gold" stroke="gold" />
+            <span className="text-sm text-gray-600">
+              {product.rating.rate} ({product.rating.count})
+            </span>
+          </div>
+          <div className="mt-1">
+            ${product.price}
+          </div>
         </p>
       </div>
     </Link>
