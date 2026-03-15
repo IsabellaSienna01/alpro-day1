@@ -25,7 +25,7 @@ export default function ProductDetailPage() {
       relative
       max-w-6xl
       mx-auto
-      mt-40
+      mt-20
       grid
       md:grid-cols-2
       gap-10
