@@ -23,11 +23,14 @@ export default function HomePage() {
         </Link>
         
       </div> */}
-      <div className="flex justify-center mt-10 gap-3">
-          {isLoading
-        ? Array.from({length: 5}).map((_, i) => (<ProductCardSkeleton key={i} />))
-        : data?.slice(0, 5).map((p) => <ProductCard key={p.id} product={p} />
-        )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-10 px-4">
+        {isLoading
+          ? Array.from({ length: 5 }).map((_, i) => (
+              <ProductCardSkeleton key={i} />
+            ))
+          : data?.slice(0, 5).map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
       </div>
     </div>
   )
