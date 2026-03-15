@@ -10,7 +10,7 @@ export default function HomePage() {
   const {data, isLoading} = useProducts()
   return (
     <div>
-      <h1 className="text-5xl text-white font-bold text-center mt-40">Welcome to 
+      <h1 className="text-5xl text-white font-bold text-center mt-25">Welcome to 
         <span className="text-(--primary) cursor-pointer hover:underline"> AlproShop</span>
         !
       </h1>
@@ -23,7 +23,7 @@ export default function HomePage() {
         </Link>
         
       </div> */}
-      <div className="flex justify-center mt-20 gap-3">
+      <div className="flex justify-center mt-10 gap-3">
           {isLoading
         ? Array.from({length: 5}).map((_, i) => (<ProductCardSkeleton key={i} />))
         : data?.slice(0, 5).map((p) => <ProductCard key={p.id} product={p} />
